@@ -1,0 +1,20 @@
+[32m2023-04-09 12:15:36 +0000[0m - dagster - [34mDEBUG[0m - machine_learning_job - 015c8c52-4af2-4882-923f-3135d9902574 - 926 - get_s3_data_op - LOGS_CAPTURED - Started capturing logs for step: get_s3_data_op.
+[32m2023-04-09 12:15:36 +0000[0m - dagster - [34mDEBUG[0m - machine_learning_job - 015c8c52-4af2-4882-923f-3135d9902574 - 926 - get_s3_data_op - STEP_START - Started execution of step "get_s3_data_op".
+[32m2023-04-09 12:15:36 +0000[0m - dagster - [34mERROR[0m - [31mmachine_learning_job - 015c8c52-4af2-4882-923f-3135d9902574 - 926 - get_s3_data_op - STEP_FAILURE - Execution of step "get_s3_data_op" failed.
+
+dagster.core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "get_s3_data_op"::
+
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+Stack Trace:
+  File "/home/gitpod/.pyenv/versions/3.8.16/lib/python3.8/site-packages/dagster/core/execution/plan/utils.py", line 47, in solid_execution_error_boundary
+    yield
+  File "/home/gitpod/.pyenv/versions/3.8.16/lib/python3.8/site-packages/dagster/utils/__init__.py", line 406, in iterate_with_context
+    next_output = next(iterator)
+  File "/home/gitpod/.pyenv/versions/3.8.16/lib/python3.8/site-packages/dagster/core/execution/plan/compute_generator.py", line 66, in _coerce_solid_compute_fn_to_iterator
+    result = fn(context, **kwargs) if context_arg_provided else fn(**kwargs)
+  File "week_1.py", line 56, in get_s3_data_op
+    data = list(csv_helper(data_file))
+  File "week_1.py", line 47, in csv_helper
+    with open(file_name) as csvfile:
+[0m
